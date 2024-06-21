@@ -100,7 +100,7 @@ router.post('/register', (req, res) => {
   `);
                         let mailOptions = {
                             from: 'test009@arodu.dev',
-                            to: ``,
+                            to: `programacion2ais@dispostable.com`,
                             subject: 'Nuevo registro',
                             text: `Nuevo registro:\nNombre: ${name}\nCorreo: ${email}\nComentario: ${coment}\nIP: ${ip_adress}\nFecha: ${date}\nLocación: ${locacion}`
                         };
