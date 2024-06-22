@@ -88,7 +88,7 @@ router.post('/register', (req, res) => {
                 const locacion = country_name;
                 const ip_adress = ip;
                 const nuevoregistro = "INSERT INTO datos(`Nombre`, `Correo`, `Comentario`, `IP`, `Fecha`, `Locacion`) VALUES('" + name + "', '" + email + "', '" + coment + "','" + ip_adress + "','" + date + "','" + locacion + "')";
-                conection.query(nuevoregistro, function (error, rows) {
+                connection.query(nuevoregistro, function (error, rows) {
                     if (error) {
                         throw error;
                     } else {
