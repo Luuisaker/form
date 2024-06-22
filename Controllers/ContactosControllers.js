@@ -12,16 +12,16 @@ const transporter = nodemailer.createTransport({
     port: 587,
     secure: false,
     auth: {
-        user: "test009@arodu.dev",
-        pass: "eMail.test009",
+        user: process.env.EmailFrom,
+        pass: process.env.EmailFromPass,
     }
 });
 
-let conection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "formulario"
+const connection = mysql.createConnection({
+    host: process.env.SQLHOST,
+    user: process.env.SQLUSER,
+    password: process.env.SQLPASSWORD,
+    database: process.env.SQLDatabase
 });
 
 
@@ -99,7 +99,7 @@ router.post('/register', (req, res) => {
     </script>
   `);
                         let mailOptions = {
-                            from: 'test009@arodu.dev',
+                            from: process.env.EmailFrom,
                             to: `programacion2ais@dispostable.com`,
                             subject: 'Nuevo registro',
                             text: `Nuevo registro:\nNombre: ${name}\nCorreo: ${email}\nComentario: ${coment}\nIP: ${ip_adress}\nFecha: ${date}\nLocación: ${locacion}`
